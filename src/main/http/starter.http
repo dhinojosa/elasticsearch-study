@@ -1,0 +1,31 @@
+GET http://localhost:9200/?pretty
+
+
+###
+# This will shutdown the server
+
+GET http://localhost:9200/_shutdown
+
+###
+# Getting Data
+###
+
+GET http://localhost:9200/_count?pretty
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+###
+# Put an employee in the index
+###
+
+POST http://localhost:9200/megacorp/_doc
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
